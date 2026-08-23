@@ -1,0 +1,1 @@
+<https://ctf.pecanplus.org/rules>

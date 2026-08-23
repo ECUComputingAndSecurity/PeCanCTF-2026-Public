@@ -1,0 +1,24 @@
+name: Challenge Draft 0
+author: La Luo
+category: crypto
+description: |
+  A CTF author (definitely not me) was halfway through writing a challenge before accidentally zipping the draft and losing the password.
+  Can you please help me (them) find the password before I have to submit the challenge for PECAN+ ??
+attribution: La Luo
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{c0mm0n_pa55w0rd}
+
+files:
+- archive.zip
+
+version: '0.1'

@@ -1,0 +1,23 @@
+name: Something About Treasures
+author: DeviantAndroid / Lindsay Coudert
+category: forensics
+description: |
+  Katie has recently been playing a game called Once Human, you play as something called a metahuman? Anyway that's not the point she left us with a photo of her favourite birds, magpies ... kind of fitting honestly considering she loves shiny things. She has a quote from her favourite book series that we suspect is the password to the files she stole from us. Could you help us find out what it is? We are running out of time.
+attribution: Lindsay Coudert
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{no_mourners_no_funerals}
+
+files:
+- KatiesFaveBirds.jpeg
+
+version: '0.1'

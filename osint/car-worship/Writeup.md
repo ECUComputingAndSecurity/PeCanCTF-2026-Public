@@ -1,0 +1,6 @@
+# CarWorship?
+
+-- 
+
+To find the answer to the challenge, all you need to do is put the provided image into Reverse lookup to find the place where it was taken.
+Someone who knows a lot about cars may be able to pick up the make year and model pretty easily, but a quick google search of Volvo Island and reading through articles should reveal the details of the car that is stranded.

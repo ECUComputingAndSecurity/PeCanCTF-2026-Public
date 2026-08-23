@@ -1,0 +1,24 @@
+name: Last Station Standing
+author: DeviantAndroid/Lindsay Coudert
+category: osint
+description: |
+  We have received some intel that our agent has last been seen at a location somewhere in Australia prompting us to use her phone against her. All we have managed to recover from Katie's phone is a photo of her last known location after being seen with the horses a few hours earlier. Unfortunately the name of the station has been greyed out during the process. We need your help to find the location and the exact time and date that this photo has been taken by her.
+  Flag Format: pecan{NameOf_Station_YYYY-MM-DD_HH:MM:SS}
+attribution: DeviantAndroid/Lindsay Coudert
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{Campbelltown_Station_2025-02-02_12:11:01}
+
+files:
+- Agent's_Last_Known_Location.jpg
+
+version: '0.1'

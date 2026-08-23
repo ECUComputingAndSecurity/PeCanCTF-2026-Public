@@ -1,0 +1,23 @@
+name: A Hint For Portals
+author: Lindsay Coudert
+category: web
+description: |
+  Thanks to Aperture Science you have been given the clearance to the files for a test chamber that has been designed by one of its employees. While the chamber appears to be completely solvable, well let's just say failure sometimes gets you the right way. Your goal is to go through the given HTML file and review the test chamber before it is built. Avoid directly opening the code, we're worried this might corrupt it. (All ownership of GLaDOS, Aperture Science, and Portal belongs to the Valve Corporation, not us).
+attribution: Lindsay Coudert & the Valve Corporation
+type: dynamic
+
+extra:
+  initial: 250
+  decay: 2
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{3rr0r_y0u_f4l3ed_succ3ssfully}
+
+files:
+- TestChamber0.html
+
+version: '0.1'

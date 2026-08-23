@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>{{WORD}} - Dictionary</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <nav class="top-nav">
+    <a href="/" class="logo">Dictionary</a>
+  </nav>
+  <main class="word-page">
+    <article>
+      <header class="word-header">
+        <h1>{{WORD}}</h1>
+        <p class="pos">{{POS}}</p>
+      </header>
+      <section class="definitions">
+        <h2>Definitions</h2>
+        <ol>
+          {{DEFINITIONS}}
+        </ol>
+      </section>
+      <section class="examples">
+        <h2>Examples</h2>
+        <ul>
+          {{EXAMPLES}}
+        </ul>
+      </section>
+      <section class="synonyms">
+        <h2>Synonyms</h2>
+        <ul>
+          {{SYNONYMS}}
+        </ul>
+      </section>
+      <section class="also-see">
+        <h2>Also See</h2>
+        <ul>
+          {{ALSO_SEE}}
+        </ul>
+      </section>
+    </article>
+  </main>
+  <footer>
+    <p>Dictionary &copy; 2026 &middot; {{WORD_COUNT}} words</p>
+  </footer>
+</body>
+
+</html>

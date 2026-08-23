@@ -1,0 +1,25 @@
+name: Scattered Info
+author: Kelly K
+category: forensics
+description: |
+  With little experience in cybersecurity and relying solely on existing malicious scripts to compromise the
+  target system, you perform a packet capture with a goated tool, Wireshark, and discover that packets weren't the only thing
+  being transferred between devices. Look deeper - TO INFINITY AND BEYOND - and you may find something based......
+attribution: Kelly K
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: Pecan{w1r3sh4rk15g04t3d}
+
+files:
+- scattered-info.pcapng
+
+version: '0.1'

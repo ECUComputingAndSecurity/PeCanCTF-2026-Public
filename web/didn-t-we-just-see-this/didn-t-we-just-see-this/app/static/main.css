@@ -1,0 +1,43 @@
+:root {
+  --dh-primary: #2f6fed;
+  --dh-primary-dark: #214fa9;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.navbar-brand {
+  color: var(--dh-primary-dark);
+}
+
+.nav-link {
+  font-weight: 600;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--dh-primary);
+  --bs-btn-border-color: var(--dh-primary);
+  --bs-btn-hover-bg: var(--dh-primary-dark);
+  --bs-btn-hover-border-color: var(--dh-primary-dark);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--dh-primary-dark);
+  --bs-btn-border-color: #b9cdfb;
+  --bs-btn-hover-bg: var(--dh-primary);
+  --bs-btn-hover-border-color: var(--dh-primary);
+}
+
+.narrow {
+  max-width: 520px;
+}
+
+.card {
+  border-radius: 8px;
+}
+
+.form-control:focus {
+  border-color: #85a9f6;
+  box-shadow: 0 0 0 0.25rem rgb(47 111 237 / 18%);
+}

@@ -1,0 +1,23 @@
+name: More Than Meets the Eye
+author: La Luo
+category: forensics
+description: |
+  This is just an image of the PECAN logo, right???
+attribution: La Luo
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{not_just_an_image}
+
+files:
+- pecan.png
+
+version: '0.1'

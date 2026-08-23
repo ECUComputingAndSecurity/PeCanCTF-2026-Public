@@ -1,0 +1,30 @@
+name: Listen Closely
+author: RiskyMH
+category: steg
+description: |
+  Your mission is simple — listen closely. Real close. Somewhere in this track
+  there's a message hiding. Can you tune out the noise and catch it?
+attribution: RiskyMH
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{N0T_G0NN4}
+- type: static
+  data: case_insensitive
+  content: pecan(N0T_G0NN4)
+
+files:
+- listen_closely.mp3
+
+hints:
+- Try listening for patterns of short and long beeps hidden under the music.
+
+version: '0.1'

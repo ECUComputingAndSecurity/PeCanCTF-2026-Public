@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+    <p class="text-uppercase text-primary fw-bold small mb-2">Priority Support</p>
+    <h1 class="h3">Support Ticket</h1>
+    <p class="text-body-secondary">Describe the issue and include a DevHub portal URL in the text if a page needs review.</p>
+    <form method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="mb-4">
+        <label class="form-label" for="message">Describe Issue</label>
+        <textarea class="form-control" id="message" name="message" rows="7" placeholder="Describe the issue here" required></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit ticket</button>
+    </form>
+    </div>
+  </section>
+{% endblock %}

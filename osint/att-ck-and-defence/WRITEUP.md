@@ -1,0 +1,2 @@
+## Solution
+Participants should identify the use of a malicious link as the T1566.002 Initial Access technique (Spearphishing Link). This provides a large list of potential groups, so the next step is to go to the page for the S0032 software (gh0st RAT). Cross-referencing these two provides just two potential groups: Kimsuky and Leviathan. Finally, the participants will find the information for the S0194 software (PowerSploit), checking which of these two groups uses this software to find that Leviathan is the likely culprit.

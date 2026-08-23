@@ -1,0 +1,27 @@
+name: Asking For Directions
+author: Benjamin Dodson
+category: misc
+description: |
+  I'm really bad with my directory management, I'm always losing my files
+  Can you help me out?? I'm pretty sure that I have a flag around here somewhere
+attribution: Benjamin Dodson
+type: dynamic
+
+extra:
+  initial: 250
+  decay: 2
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{wow_you_did_it!}
+
+hints:
+- How might you "find" the flag?
+
+files:
+- files.zip
+
+version: '0.1'

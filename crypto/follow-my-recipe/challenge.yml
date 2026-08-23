@@ -1,0 +1,35 @@
+name: Follow My Recipe
+author: Karina (ECU)
+category: crypto
+description: |
+  Hey chef, can you whip this up?
+
+  INGREDIENTS:
+  A) 646d787949473179635342785a574967
+  B) 61575a715969426d617942785a5749
+  C) rzk6oTglpD
+  D) Base64
+  E) ROT13
+
+  - Caesar sauce to finish
+
+  RECIPE:
+
+  1. Combine ingredient B with ingredient A. Separate as required. Extract hex, before setting your base.
+  2. Mix Ingredient C with some ROT13. Set by removing all Base64.
+  3. Combine all. Add a touch of Caesar to taste.
+attribution: Karina (ECU)
+type: dynamic
+
+extra:
+  initial: 250
+  decay: 2
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{you_put_the_lime_in_the_coconut}
+
+version: '0.1'

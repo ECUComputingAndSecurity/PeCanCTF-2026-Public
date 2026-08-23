@@ -1,0 +1,20 @@
+name: ATT&CK and Defence
+author: Chelsea Pritchard
+category: osint
+description: |
+  A client is recovering from a cyber-attack performed by a sophisticated actor. You've been tasked with identifying the group that performed the attack. It is believed the initial intrusion occurred after an employee downloaded a file from a link in a malicious email. Traces of the gh0st RAT malware and files from the PowerSploit framework have also been found on compromised devices. Use the MITRE ATT&CK knowledge base to find the probable culprit. The flag should be in the format `pecan{Group}`.
+attribution: Chelsea Pritchard
+type: dynamic
+
+extra:
+  initial: 250
+  decay: 2
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{Leviathan}
+
+version: '0.1'

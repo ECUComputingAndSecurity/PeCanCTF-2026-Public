@@ -1,0 +1,26 @@
+name: Flagged File
+author: Raahguu
+category: rev
+description: |
+  Hey Newbie,
+  Our new antivirus flagged an email an employee got as having a suspicious attachment, but the employee claims that it's something they were expecting and need.
+  Can you check it out for me.
+  - Raahguu
+attribution: Raahguu
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{wh4t_d0_y0u_m34n_1t5_n0t_m4lw4r3?}
+
+files:
+- attachment.zip
+
+version: '0.1'

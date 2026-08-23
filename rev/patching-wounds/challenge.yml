@@ -1,0 +1,23 @@
+name: Patching Wounds
+author: Raahguu
+category: rev
+description: |
+  Soldier, I've given you to the best doctor we have on station. Let's hope they can patch you up.
+attribution: Raahguu
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{y0u_p4tch3d_up_th4t_w0und_w377_507d13r}
+
+files:
+- patching_wounds
+
+version: '0.1'

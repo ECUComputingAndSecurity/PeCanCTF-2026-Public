@@ -1,0 +1,11 @@
+{
+  "name": "dictionary-site",
+  "type": "module",
+  "scripts": {
+    "build": "bun run build-site.ts",
+    "start": "bun run serve.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14"
+  }
+}

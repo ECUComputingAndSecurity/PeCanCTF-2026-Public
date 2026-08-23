@@ -1,0 +1,27 @@
+name: Asking For Deeper Directions
+author: Benjamin Dodson
+category: misc
+description: |
+  I'm starting to think I'm just not great with computers, I know I saved that flag in one of my files, but which one??
+  I don't know which directory the file is in either, I know it's here somewhere
+attribution: Benjamin Dodson
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{sneaky_sneaky_flag}
+
+hints:
+- How might you find text within a file in Linux, some sort of global regular expression program perhaps??
+
+files:
+- files.zip
+
+version: '0.1'

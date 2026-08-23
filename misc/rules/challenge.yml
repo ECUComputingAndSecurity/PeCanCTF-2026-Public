@@ -1,0 +1,20 @@
+name: Rules
+author: PECAN+ CTF
+category: misc
+description: |
+  Have you read the Rules of this CTF?
+attribution: PECAN+ CTF
+type: dynamic
+
+extra:
+  initial: 250
+  decay: 2
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{th3_rule$_ru1e!}
+
+version: '0.1'

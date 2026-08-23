@@ -1,0 +1,29 @@
+name: Hamming Codez
+author: Cian McCormack
+category: crypto
+description: |
+  Hamming codes were invented in 1950 by Richard W. Hamming, a researcher at Bell Telephone Laboratories. He developed them to automatically detect and correct single-bit errors. Can you apply his ideas and recover the hidden message?
+attribution: Cian McCormack
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{1tsh4mm1n_t1m3_n1c3}
+
+hints:
+- The table order matters.
+- The EC values act as codeword positions, not character values.
+- Each EC represents a single bit flip, however the row it changes may be useful.
+
+files:
+- HammingCodeZ.jpeg
+- HammingCodes.json
+
+version: '0.1'

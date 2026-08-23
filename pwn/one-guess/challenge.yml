@@ -1,0 +1,29 @@
+name: One Guess
+author: Jeremy Karagania
+category: pwn
+description: |
+  The game is simple: guess the number, get the flag.
+attribution: Jeremy Karagania
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+image: .
+protocol: tcp
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{b1n4ry_3xp101t4t10n_m33ts_b1n4ry_s24rch_a682b76a}
+
+files:
+- Dockerfile
+- Makefile
+- chall
+- main.c
+
+version: '0.1'

@@ -1,0 +1,37 @@
+name: It's all in the details
+author: Elliot Rosignoli (NotALotus)
+category: crypto
+description: |
+  Australian intelligence agencies require your assistance. All intel leads us to believe that a single threat actor is the greatest threat to Australia's cyberspace. Luckily, we have agents everywhere. One of our most elite agents has managed to plant spyware on the infamous cybercriminal Jeff Calloway's laptop. We had hoped to uncover his secret plan by observing his emails to his fellow cybercriminals. Unfortunately, it appears we underestimated Mr Calloway. He seems aware that he may be being watched and his co-conspirators seem to be communicating in code. Only the most talented cryptographers (or most eager) could possibly hope to uncover the true nature of their messages.
+
+  Can we rely on you to solve this problem?
+
+  We already know that they plan to infiltrate an Australian business in order to cause mayhem but we are still looking for a target city, target location, type of attack, and date of attack in order to prepare the target's defences and protect our fellow Australians.
+
+  Please submit the missing information to us in the format: `pecan{(Target_Location)_(Business_Name)_(type_of_attack)_(ddmmyyyy)}`
+
+  Note: Make sure that spaces between words have a _ in between them **( for example Cotton On would be -> Cotton_On )**
+
+  Our agent reckons these three emails are the most suspicious. His intuition never fails, but even he cannot unlock the mysteries hidden with these files.
+
+  Good luck! The battle against cybercrime will go on forever, but this victory will be eternal.
+attribution: Elliot Rosignoli (NotALotus)
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{perth_bunnings_warehouse_supply_chain_11112026}
+
+files:
+- email_01.txt
+- email_02.txt
+- email_03.txt
+
+version: '0.1'

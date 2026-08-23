@@ -1,0 +1,2 @@
+## Solution
+As the modulus for each key shares a prime, any function to find the greatest common divisor between the moduli can quickly find the shared prime. From there each modulus can be divided by the shared prime to get the other prime, and the private key can be derived. `example_solution.py` contains a python script to perform this process automatically.

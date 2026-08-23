@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+    <h1 class="h3 mb-4">Inbox</h1>
+    {% if messages %}
+      <div class="list-group list-group-flush">
+        {% for message in messages %}
+          <article class="list-group-item px-0">
+            <div class="small text-body-secondary mb-2">From {{ message.sender }} on {{ message.created_at }}</div>
+            <div>{{ message.body }}</div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-body-secondary mb-0">No messages yet.</p>
+    {% endif %}
+    </div>
+  </section>
+{% endblock %}

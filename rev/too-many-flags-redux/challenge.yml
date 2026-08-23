@@ -1,0 +1,24 @@
+name: Too Many Flags Redux
+author: Chelsea Pritchard
+category: rev
+description: |
+  We've found another file full of flags! Can you figure out how these flags were generated and find the right one?
+attribution: Chelsea Pritchard
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{r4nd0m_fl4g_r3dux}
+
+files:
+- flag_gen.py
+- flags.txt
+
+version: '0.1'

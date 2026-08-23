@@ -1,0 +1,28 @@
+name: Save Tielur
+author: Cian McCormack
+category: pwn
+description: |
+  TIELUR is a decorated RR leader, but some notorious actors have been plotting his demise. You - the chosen heroic cleric, must devise a plan to heal TIELUR, and prevent the ultimate attack from taking his life.
+attribution: Cian McCormack
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+image: .
+protocol: tcp
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{Y0U_S4VeD_T1ELuR_G0ODJ0B26}
+
+hints:
+- TIELUR's health uses 32-bit unsigned integers
+- The healing plan must set TIELUR's health to > 99.99999997671708% of the max health.
+- Integer overflow and underflow go hand in hand, if you cannot bring his health directly up to maximum, perhaps you can calculate a target value to underflow to?
+
+version: '0.1'

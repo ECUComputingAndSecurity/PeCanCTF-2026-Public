@@ -1,0 +1,26 @@
+name: Specimen-01
+author: La Luo
+category: crypto
+description: |
+  Scientists investigating a mysterious CTF creature recovered a fragment of its genetic material.
+attribution: La Luo
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{c7f_run5_1n_my_b100d}
+
+files:
+- file.txt
+
+hints:
+  - 2 bits per nitrogenous base
+
+version: '0.1'

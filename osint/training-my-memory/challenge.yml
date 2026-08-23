@@ -1,0 +1,29 @@
+name: Training My Memory
+author: kei
+category: osint
+description: |
+  Thanks for finding those coffee shop locations for me! I need your help once again though, I spotted this train on a road trip recently, but my memory has been bad :( I don't remember what Australian town this train is located in or how far it is, and there's a street name that's named after a grape variant nearby to it; the street name is also related to the history of the town it is located in. Can you help me look for the **suburb of the company that developed this specific locomotive**, **how far is this suburb located from the main CBD of the state it's located in** and the **street name** mentioned?
+
+  Flag format: pecan{TrainBuilderOrigin_Kilometers_ExampleStreet}
+attribution: kei
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{Maryborough_82.2_SauvignonStreet}
+# the writeup rounds the distance to 82km, so accept that too
+- type: static
+  data: case_insensitive
+  content: pecan{Maryborough_82_SauvignonStreet}
+
+files:
+- image0.jpg
+
+version: '0.1'

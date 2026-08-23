@@ -1,0 +1,23 @@
+name: Hidden In Plain Sight
+author: David Thomas
+category: forensics
+description: |
+  I know I saw a video somewhere around here, maybe if I dig a little deeper I might find it.
+attribution: David Thomas
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{g00d_w0rk_700k1ng_d33per_5gHoL}
+
+files:
+- star.jpg
+
+version: '0.1'

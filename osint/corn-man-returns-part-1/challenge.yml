@@ -1,0 +1,20 @@
+name: Corn Man Returns
+author: Monique Cornall
+category: osint
+description: |
+  Corn man has appeared once again!  This time, he seems to have travelled quite far around Australia, leaving reviews as he went.  Maybe you can track him down?  His known email address is cornman25944@gmail.com
+attribution: Monique Cornall
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{corn_review_connoisseur}
+
+version: '0.1'

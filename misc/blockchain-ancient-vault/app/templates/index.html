@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        h1 {
+            color: #58a6ff;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .warning {
+            border-left: 5px solid #f2cc60;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            row-gap: 16px;
+            column-gap: 20px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #58a6ff;
+        }
+
+        code {
+            background: #0d1117;
+            padding: 3px 6px;
+            border-radius: 4px;
+            word-break: break-all;
+            color: #79c0ff;
+        }
+
+        ul {
+            margin-top: 10px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 700px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>{{ title }}</h1>
+
+    <div class="card warning">
+        <h2>Instructions</h2>
+        <ul>
+            <li>Any POST requests sent here will be forwarded to the blockchain network.</li>
+            <li>To reset your keys and deployed contract, clear your browser cookies and reload the page.</li>
+            <li>If you have solved the challenge, reload the page to reveal the flag.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Connection Details</h2>
+
+        <div class="info-grid">
+            <div class="label">Contract Address</div>
+            <div><code>{{ conaddr }}</code></div>
+
+            <div class="label">Public Key</div>
+            <div><code>{{ pubk }}</code></div>
+
+            <div class="label">Private Key</div>
+            <div><code>{{ privk }}</code></div>
+
+            <div class="label">Balance</div>
+            <div><code>{{ bal }}</code></div>
+        </div>
+    </div>
+
+    <div class="card"> 
+        <h2> Flag </h2>
+        <div class="info-grid">
+            <div class="label">The Flag is </div>
+            <div><code>{{ flag }}</code></div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+name: Blanked Out
+author: David Thomas
+category: misc
+description: |
+  I know I left my folders around here somewhere can someone help me find them, there is something of incredible importance in there.
+attribution: David Thomas
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{Good_J0b_y0u_f0und_th3_h1dd3n_fl4g!}
+
+files:
+- blank.zip
+
+version: '0.1'

@@ -1,0 +1,27 @@
+name: Bit Counter
+author: Raahguu
+category: crypto
+description: |
+  People always tell me to encrypt my data, so I did see? Finally putting my Kwikset key to good use!
+attribution: Raahguu
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{D0n7_p057_y0ur_k3y5_0n71n3}
+
+hints:
+- What makes each physical key unique?
+- "These are some interesting pictures: https://github.com/deviantollam/Key-and-Pin-Decoding/tree/master"
+
+files:
+- proof.png
+
+version: '0.1'

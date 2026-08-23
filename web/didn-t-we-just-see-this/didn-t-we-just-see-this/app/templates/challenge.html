@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="card border-0 shadow-sm">
+    <div class="card-body p-4 p-lg-5">
+      <h1 class="h2">Project Dashboard</h1>
+      <div class="border rounded p-3 mt-3">
+        <p class="mb-2"><span class="fw-semibold">Workspace ID:</span> {{ challenge_id }}</p>
+        <p class="fw-semibold mb-2">Workspace Members:</p>
+        <ul class="mb-0">
+          <li>You: {{ g.user.username }}</li>
+          <li>Assigned Support: {{ support_username }}</li>
+        </ul>
+      </div>
+      <div class="border rounded p-3 mt-3">
+        <h2 class="h5">DevHub v1.7.3</h2>
+        <ul class="mb-0">
+          <li>Improved page routing consistency across the portal.</li>
+          <li>Investigating rare reports where pages appear in unexpected places.</li>
+          <li>Support may request exact page URLs when reproducing customer reports.</li>
+        </ul>
+      </div>
+      <div class="d-flex flex-wrap gap-2 mt-4">
+        <a class="btn btn-primary" href="{{ url_for('settings', challenge_id=challenge_id) }}">Project Settings</a>
+        <a class="btn btn-outline-primary" href="{{ url_for('support', challenge_id=challenge_id) }}">Open support ticket</a>
+        <a class="btn btn-outline-primary" href="{{ url_for('inbox', challenge_id=challenge_id) }}">Inbox</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

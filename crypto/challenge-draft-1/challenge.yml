@@ -1,0 +1,31 @@
+name: Challenge Draft 1
+author: La Luo
+category: crypto
+description: |
+  Oh $#&! it happened again!
+  A CTF author (definitely not me) was halfway through writing a challenge before accidentally zipping the draft and losing the password AGAIN!!.
+  This time they used a more secure password, maybe there's some other approach we can use.
+  We only know that they always begin challenge writeups using the same README.md template, and that they added the flag to the end of the file.
+  Can you please help me (them) recover the draft again??
+attribution: La Luo
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{7hank5_70_7he_7emp1a7e}
+
+files:
+- archive.zip
+- README_template.md
+
+requirements:
+- "Challenge Draft 0"
+
+version: '0.1'

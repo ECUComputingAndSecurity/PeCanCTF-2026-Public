@@ -1,0 +1,1 @@
+Decoding morse code is pretty simple, there's no need to look up the missions to find out the names of the rockets or capsule, just going through the document and using cyberchef or your preferred decoder reverse the morse code

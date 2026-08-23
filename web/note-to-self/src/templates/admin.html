@@ -1,0 +1,386 @@
+{% extends "base.html" %}
+{% block title %} — Admin Panel{% endblock %}
+
+{% block head %}
+<style>
+    .page-header { margin-bottom: 2rem; }
+    .page-header h2 { font-size: 1.4rem; color: #e8b4ff; font-weight: 700; }
+    .page-header p  { font-size: 0.85rem; color: #888; margin-top: 0.2rem; }
+
+    .admin-badge {
+        display: inline-block;
+        background: rgba(232,180,255,0.15);
+        border: 1px solid rgba(232,180,255,0.3);
+        color: #e8b4ff;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+        margin-left: 0.5rem;
+        vertical-align: middle;
+    }
+
+    .stats-row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .stat-card {
+        background: #16213e;
+        border: 1px solid #0f3460;
+        border-radius: 12px;
+        padding: 1.1rem 1.5rem;
+        min-width: 140px;
+    }
+
+    .stat-card .stat-val { font-size: 1.8rem; font-weight: 700; color: #ffd700; }
+    .stat-card .stat-label { font-size: 0.8rem; color: #888; margin-top: 0.1rem; }
+
+    .section { margin-bottom: 2.5rem; }
+    .section-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #888;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #0f3460;
+    }
+
+    .users-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.88rem;
+    }
+
+    .users-table th {
+        text-align: left;
+        padding: 0.65rem 1rem;
+        background: #16213e;
+        color: #888;
+        font-weight: 600;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        border-bottom: 1px solid #0f3460;
+    }
+
+    .users-table th:first-child { border-radius: 8px 0 0 0; }
+    .users-table th:last-child  { border-radius: 0 8px 0 0; }
+
+    .users-table td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #0f3460;
+        color: #ccc;
+        vertical-align: middle;
+    }
+
+    .users-table tr:last-child td { border-bottom: none; }
+    .users-table tr:hover td { background: rgba(15,52,96,0.3); }
+
+    .role-pill {
+        display: inline-block;
+        padding: 0.18rem 0.6rem;
+        border-radius: 20px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    .role-admin { background: rgba(232,180,255,0.2); color: #e8b4ff; }
+    .role-user  { background: rgba(255,215,0,0.15);  color: #ffd700; }
+
+    .delete-user-btn {
+        background: rgba(231,76,60,0.15);
+        border: 1px solid rgba(231,76,60,0.3);
+        color: #e74c3c;
+        padding: 0.25rem 0.65rem;
+        border-radius: 6px;
+        font-size: 0.78rem;
+        cursor: pointer;
+        transition: background 0.15s;
+    }
+
+    .delete-user-btn:hover { background: rgba(231,76,60,0.3); }
+    .delete-user-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    /* User notes accordion */
+    .user-notes-section { margin-top: 1rem; }
+
+    .user-row {
+        background: #16213e;
+        border: 1px solid #0f3460;
+        border-radius: 12px;
+        margin-bottom: 0.75rem;
+        overflow: hidden;
+    }
+
+    .user-row-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.85rem 1.1rem;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.15s;
+    }
+
+    .user-row-header:hover { background: rgba(15,52,96,0.4); }
+
+    .user-row-header .uname { font-weight: 600; color: #e0e0e0; font-size: 0.9rem; }
+    .user-row-header .umeta { font-size: 0.78rem; color: #777; margin-top: 0.1rem; }
+    .user-row-header .chevron { color: #555; transition: transform 0.2s; }
+    .user-row.open .chevron { transform: rotate(90deg); }
+
+    .user-row-body {
+        display: none;
+        padding: 0 1.1rem 1rem;
+        border-top: 1px solid #0f3460;
+    }
+
+    .user-row.open .user-row-body { display: block; }
+
+    .notes-mini-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.75rem;
+        margin-top: 0.85rem;
+    }
+
+    .note-mini {
+        border-radius: 8px;
+        padding: 0.75rem 0.85rem;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .note-mini .nm-title { font-weight: 700; font-size: 0.82rem; color: #1a1a2e; margin-bottom: 0.3rem; word-break: break-word; }
+    .note-mini .nm-body  { font-size: 0.78rem; color: #1a1a2e; opacity: 0.85; line-height: 1.4; word-break: break-word; white-space: pre-wrap; }
+    .note-mini .nm-date  { font-size: 0.68rem; color: #1a1a2eaa; margin-top: 0.35rem; }
+
+    .no-notes { font-size: 0.82rem; color: #555; font-style: italic; margin-top: 0.75rem; }
+
+    /* Redis diagnostics */
+    .redis-console {
+        background: #0a0f1a;
+        border: 1px solid #0f3460;
+        border-radius: 12px;
+        padding: 1.25rem;
+    }
+
+    .redis-input-row {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .redis-cmd {
+        flex: 1;
+        background: #0f1b2d;
+        border: 1px solid #0f3460;
+        border-radius: 8px;
+        color: #a8e6cf;
+        font-family: 'Courier New', monospace;
+        font-size: 0.88rem;
+        padding: 0.6rem 0.9rem;
+    }
+
+    .redis-cmd:focus { outline: none; border-color: #a8e6cf; }
+    .redis-cmd::placeholder { color: #2a4a3a; }
+
+    .redis-output {
+        background: #0f1b2d;
+        border: 1px solid #0f3460;
+        border-radius: 8px;
+        padding: 0.9rem;
+        font-family: 'Courier New', monospace;
+        font-size: 0.82rem;
+        color: #a8e6cf;
+        min-height: 80px;
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+
+    .redis-output .out-prompt { color: #555; }
+    .redis-output .out-error  { color: #e74c3c; }
+    .redis-output .out-result { color: #a8e6cf; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h2>Admin Panel <span class="admin-badge">Admin</span></h2>
+        <p>Manage accounts and review notes</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-val">{{ users | length }}</div>
+            <div class="stat-label">Total Users</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val">{{ user_notes.values() | map('length') | sum }}</div>
+            <div class="stat-label">Total Notes</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-val">{{ users | selectattr('role', 'equalto', 'admin') | list | length }}</div>
+            <div class="stat-label">Admin Accounts</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Registered Users</div>
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Joined</th>
+                    <th>Notes</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+                <tr id="user-row-{{ u.username }}">
+                    <td style="color:#555">{{ loop.index }}</td>
+                    <td style="font-weight:600;color:#e0e0e0">{{ u.username }}</td>
+                    <td><span class="role-pill role-{{ u.role }}">{{ u.role }}</span></td>
+                    <td>{{ u.created_at }}</td>
+                    <td>{{ user_notes[u.username] | length }}</td>
+                    <td>
+                        {% if u.role != 'admin' %}
+                        <button class="delete-user-btn" data-username="{{ u.username }}">Delete</button>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Redis Diagnostics</div>
+        <div class="redis-console">
+            <div class="redis-input-row">
+                <input class="redis-cmd" id="redis-cmd" type="text" placeholder="e.g. KEYS * &nbsp;|&nbsp; HGETALL user:admin" spellcheck="false" autocomplete="off">
+                <button class="btn btn-ghost btn-sm" id="redis-run">Run</button>
+            </div>
+            <div class="redis-output" id="redis-output"><span class="out-prompt">-- output will appear here --</span></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">User Notes</div>
+        <div class="user-notes-section">
+            {% for u in users %}
+            <div class="user-row" id="accordion-{{ u.username }}">
+                <div class="user-row-header" data-accordion="accordion-{{ u.username }}">
+                    <div>
+                        <div class="uname">{{ u.username }} <span class="role-pill role-{{ u.role }}" style="margin-left:0.3rem">{{ u.role }}</span></div>
+                        <div class="umeta">{{ user_notes[u.username] | length }} note{% if user_notes[u.username] | length != 1 %}s{% endif %}</div>
+                    </div>
+                    <span class="chevron">▶</span>
+                </div>
+                <div class="user-row-body">
+                    {% set notes = user_notes[u.username] %}
+                    {% if notes %}
+                    <div class="notes-mini-grid">
+                        {% for n in notes %}
+                        <div class="note-mini" style="background:{{ n.color }}">
+                            <div class="nm-title">{{ n.title }}</div>
+                            <div class="nm-body">{{ n.content }}</div>
+                            <div class="nm-date">{{ n.created_at }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p class="no-notes">No notes yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    const redisOutput = document.getElementById('redis-output');
+    const redisCmd    = document.getElementById('redis-cmd');
+
+    async function runRedisCmd() {
+        const raw   = redisCmd.value.trim();
+        if (!raw) return;
+        const parts   = raw.match(/(?:[^\s"']+|"[^"]*"|'[^']*')+/g) || [];
+        const command = parts[0];
+        const args    = parts.slice(1).map(a => a.replace(/^['"]|['"]$/g, ''));
+
+        redisOutput.innerHTML = `<span class="out-prompt">> ${esc(raw)}\n</span>`;
+
+        const res  = await fetch('/api/admin/diagnostics', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ command, args }),
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+            redisOutput.innerHTML += `<span class="out-error">(error) ${esc(data.error)}</span>`;
+        } else {
+            redisOutput.innerHTML += `<span class="out-result">${esc(formatResult(data.result))}</span>`;
+        }
+    }
+
+    function formatResult(result) {
+        if (result === null)            return '(nil)';
+        if (typeof result === 'string') return `"${result}"`;
+        if (typeof result === 'number') return String(result);
+        if (Array.isArray(result)) {
+            return result.map((v, i) => `${i + 1}) ${formatResult(v)}`).join('\n');
+        }
+        if (typeof result === 'object') {
+            return Object.entries(result).flatMap(([k, v], i) =>
+                [`${i * 2 + 1}) "${k}"`, `${i * 2 + 2}) "${v}"`]
+            ).join('\n');
+        }
+        return String(result);
+    }
+
+    function esc(str) {
+        const d = document.createElement('div');
+        d.appendChild(document.createTextNode(str));
+        return d.innerHTML;
+    }
+
+    document.getElementById('redis-run').addEventListener('click', runRedisCmd);
+    redisCmd.addEventListener('keydown', e => { if (e.key === 'Enter') runRedisCmd(); });
+
+    document.querySelectorAll('[data-accordion]').forEach(el => {
+        el.addEventListener('click', () => {
+            document.getElementById(el.dataset.accordion)?.classList.toggle('open');
+        });
+    });
+
+    document.querySelectorAll('.delete-user-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const username = btn.dataset.username;
+            if (!confirm(`Delete user "${username}" and all their notes?`)) return;
+            const res = await fetch(`/api/admin/users/${encodeURIComponent(username)}`, { method: 'DELETE' });
+            if (res.ok) {
+                document.getElementById(`user-row-${username}`)?.remove();
+                document.getElementById(`accordion-${username}`)?.remove();
+            } else {
+                const data = await res.json();
+                alert(data.error || 'Failed to delete user');
+            }
+        });
+    });
+</script>
+{% endblock %}

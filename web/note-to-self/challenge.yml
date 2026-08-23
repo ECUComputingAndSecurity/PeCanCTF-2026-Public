@@ -1,0 +1,26 @@
+name: Note To Self
+author: Pritchard, Chelsea
+category: web
+description: |
+  We've made a handy new app you can keep all your reminders in! It's super secure and uses a unique JWT secret for each log-in session.
+attribution: Pritchard, Chelsea
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+image: src/
+protocol: https
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{o0ps!_a11_k3ys}
+
+files:
+  - src.zip
+
+version: '0.1'

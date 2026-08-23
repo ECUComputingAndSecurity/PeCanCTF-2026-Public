@@ -1,0 +1,24 @@
+name: Eye Strain
+author: Karina (ECU)
+category: steg
+description: |
+  I've been staring at this thing for hours O_o
+  
+attribution: Karina (ECU)
+type: dynamic
+
+extra:
+  initial: 250
+  decay: 2
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{my_eyes_hurt}
+
+files:
+- Eye strain.pdf
+
+version: '0.1'

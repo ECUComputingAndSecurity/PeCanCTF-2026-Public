@@ -1,0 +1,24 @@
+name: Ye Olde Programme
+author: Dio Lea
+category: misc
+description: |
+  Lo! The year of our Lord sixteen hundred doth grace the land, and by mine own ears I have heard tell of a tongue most curious, the ESOTERIC tongue of the Shakespeare Programming Language, devised by learned men, which doth now hold the very court of fashion! Flattering words, spun from gilded silk, and oaths that spill like pitch from a raven's beak. These be the currency of wit, the very crest of gentility! And thou, a gentile of such fine breeding and exquisite fashion, with wit as sharp as any rapier's point, surely no toil thou dost face to perceive the value of the jape Puck played upon great Caesar when bidding him to heed the counsel of his own beating heart!
+  The ye olde programme hath an output of "spl". Discover, I pray thee, the true value of Puck's sly jest, that ye may frame it in the proper guise of the pecan flag.
+attribution: Dio Lea
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{64}
+
+files:
+- Ye_Olde_Programme.spl
+
+version: '0.1'

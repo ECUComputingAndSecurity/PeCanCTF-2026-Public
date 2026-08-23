@@ -1,0 +1,27 @@
+name: vulran
+author: Friska
+category: pwn
+description: |
+  Document Name: Note
+  Classification: Top Secret
+  Date: 5th February 2059
+
+  That terminal, right there, blinking in the dark... Find the code before the sky answers first.
+attribution: Friska
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{sky-sc0rch3d-but-4t-what-cost?}
+
+image: vulran/.
+protocol: tcp
+
+version: '0.1'

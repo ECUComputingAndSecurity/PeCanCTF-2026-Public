@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DevHub Priority Support</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  </head>
+  <body class="bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">DevHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <div class="navbar-nav ms-auto gap-lg-1">
+            {% if g.user %}
+              <a class="nav-link" href="{{ url_for('challenge_home', challenge_id=g.user.challenge_id) }}">Dashboard</a>
+              <a class="nav-link" href="{{ url_for('settings', challenge_id=g.user.challenge_id) }}">Project Settings</a>
+              <a class="nav-link" href="{{ url_for('support', challenge_id=g.user.challenge_id) }}">Support</a>
+              <a class="nav-link" href="{{ url_for('inbox', challenge_id=g.user.challenge_id) }}">
+                Inbox
+                <span
+                  id="inboxBadge"
+                  class="badge text-bg-primary{% if unread_inbox_count == 0 %} d-none{% endif %}"
+                  data-count="{{ unread_inbox_count }}"
+                >{{ unread_inbox_count }}</span>
+              </a>
+              <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+              <a class="btn btn-primary ms-lg-2" href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="container py-4 py-lg-5">
+      {% if g.user %}
+        <div id="liveAlert" class="alert alert-info fade d-none" role="status">New support reply received</div>
+      {% endif %}
+      {% with notices = get_flashed_messages() %}
+        {% if notices %}
+          <div class="alert alert-warning fade show auto-dismiss-alert" role="alert">
+            {% for notice in notices %}
+              <div>{{ notice }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script>
+      document.querySelectorAll(".auto-dismiss-alert").forEach((element) => {
+        window.setTimeout(() => {
+          bootstrap.Alert.getOrCreateInstance(element).close();
+        }, 6000);
+      });
+    </script>
+    {% if g.user %}
+      <div id="liveNotice" class="toast align-items-center text-bg-primary border-0 position-fixed bottom-0 end-0 m-3" role="status" aria-live="polite" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">New support reply received</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const source = new EventSource("{{ url_for('events', challenge_id=g.user.challenge_id) }}");
+          const notice = document.getElementById("liveNotice");
+          const alert = document.getElementById("liveAlert");
+          const badge = document.getElementById("inboxBadge");
+          let count = Number.parseInt(badge.dataset.count || "0", 10);
+          let alertTimer;
+          let alertHideTimer;
+
+          window.addEventListener("pagehide", () => source.close(), { once: true });
+
+          source.addEventListener("inbox", () => {
+            count += 1;
+            badge.textContent = count;
+            badge.dataset.count = String(count);
+            badge.classList.remove("d-none");
+            alert.classList.remove("d-none");
+            alert.classList.add("show");
+            window.clearTimeout(alertTimer);
+            window.clearTimeout(alertHideTimer);
+            alertTimer = window.setTimeout(() => {
+              alert.classList.remove("show");
+              alertHideTimer = window.setTimeout(
+                () => alert.classList.add("d-none"),
+                150
+              );
+            }, 5000);
+            bootstrap.Toast.getOrCreateInstance(
+              notice,
+              { autohide: true, delay: 5000 }
+            ).show();
+          });
+        })();
+      </script>
+    {% endif %}
+  </body>
+</html>

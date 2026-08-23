@@ -1,0 +1,5 @@
+# so many pages, we don't want anyone to look at *them all*
+User-agent: *
+Disallow: /
+
+Sitemap: /sitemap.xml

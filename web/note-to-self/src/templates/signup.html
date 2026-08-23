@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %} — Sign Up{% endblock %}
+
+{% block head %}
+<style>
+    .auth-wrapper {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1a1a2e;
+    }
+
+    .auth-card {
+        background: #16213e;
+        border: 1px solid #0f3460;
+        border-radius: 16px;
+        padding: 2.5rem 2.25rem;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .auth-logo {
+        text-align: center;
+        margin-bottom: 1.75rem;
+    }
+
+    .auth-logo .icon { font-size: 2.5rem; display: block; margin-bottom: 0.5rem; }
+
+    .auth-logo h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffd700;
+    }
+
+    .auth-logo p { font-size: 0.85rem; color: #888; margin-top: 0.25rem; }
+
+    .form-group { margin-bottom: 1.1rem; }
+
+    .form-group label {
+        display: block;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #aaa;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.4rem;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 0.7rem 0.9rem;
+        background: #0f1b2d;
+        border: 1px solid #0f3460;
+        border-radius: 8px;
+        color: #e0e0e0;
+        font-size: 0.95rem;
+        transition: border-color 0.15s;
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: #ffd700;
+    }
+
+    .field-hint {
+        font-size: 0.75rem;
+        color: #666;
+        margin-top: 0.3rem;
+    }
+
+    .btn-block { width: 100%; justify-content: center; margin-top: 0.5rem; }
+
+    .auth-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+        color: #777;
+    }
+
+    .auth-footer a { color: #ffd700; text-decoration: none; }
+    .auth-footer a:hover { text-decoration: underline; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-logo">
+            <span class="icon">📝</span>
+            <h1>Create Account</h1>
+            <p>Join StickyNotes today</p>
+        </div>
+
+        {% if error %}
+        <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="/signup">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Choose a username" autocomplete="username" required>
+                <p class="field-hint">3–32 characters</p>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Choose a password" autocomplete="new-password" required>
+                <p class="field-hint">At least 6 characters</p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+        </form>
+
+        <div class="auth-footer">
+            Already have an account? <a href="/login">Sign in</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

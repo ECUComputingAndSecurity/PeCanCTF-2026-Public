@@ -1,0 +1,27 @@
+name: SQLi Office 
+author: Raahguu
+category: web
+description: |
+  Not everything in a document is visible. Word documents store a surprising amount of data, if you know how to find it.
+attribution: Raahguu
+image: app/
+protocol: https
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{w0rd_d0c_4s_4n_3xp701t_v3ct0r?}
+
+hints:
+- Did you know that word documents are really just zip files?
+- What would happen if someone forged the name of the creator to maybe "'OR 1=1;--"?
+- What other fields are stored about these word documents?
+
+version: '0.1'

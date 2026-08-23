@@ -1,0 +1,7 @@
+After opening the json file we see a big wall of unorganised mess. After writing a quick program to organise it into a viewable format I can see keys that immitate real email logs such as dkim, dmarc, and spf. These may be unfamiliar to to me so I research them and find that they are email authentication methods used to stop spam and phishing emails. If we suspect a phishing attack then it's safe to assume the email might have failed these checks. 
+
+The phishing email must have had an attachment or a link. There are no links found when searching the email "body" keys.Though filtering by attachments narrows it down there are still far too many. Filtering by attachment and any failed authentications produces a much more manageable result though still too many to search manually. Trying all 3 authentications as a "fail" will not work either as the malicious email failed spf and dkim but passed dmarc allowing it to get through. Searching for an email by failed spf and dkim but passed dmarc will yeild the malicious email.
+
+Email attachments are encoded in base 64 so after running the attachment data through a base 64 decoder I will find a .gz file, our "malware".
+
+Strings or grep will not yield the flag as it has been obfuscated. Using Ghidra I can see the decompiled C code in the main function. From here I can see that the flag has been obfuscated using an xor for loop with a key of 0x2a. Using the key I can xor the values stored in the main function's local variables to produce the flag.

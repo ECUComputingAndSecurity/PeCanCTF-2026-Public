@@ -1,0 +1,23 @@
+name: Poems Of Movement
+author: Pritchard, Chelsea
+category: web
+description: |
+  I made a fun little app for showing my favourite poems and keeping track of my Todo list!
+attribution: Pritchard, Chelsea
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+image: src/
+protocol: https
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{d4nger0us_un5an7ised_p4th5}
+
+version: '0.1'

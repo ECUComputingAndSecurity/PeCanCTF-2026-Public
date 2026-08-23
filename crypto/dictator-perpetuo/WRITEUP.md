@@ -1,0 +1,3 @@
+Everything in this challenge is about Julius Caesar so it will be easy to identify this text as being encoded using the Caesar cypher. Challengers can check every rotation for the decoded text or discover that Caesar assumed the title Dictator Perpetuo in the year 44BC and rotate the text back by 44 (i.e. back by 18, or equivalently forward by 8). This reveals a secret phrase RomaInvicta!.
+
+From here I can see that the given image, The Ides of March, has an unusually large file size. With that in mind and the secret phrase just uncovered I use steghide to see if there's anything hidden inside the image. If the phrase RomaInvicta! is used as the password for steghide the flag( pecan{veni_vidi_vici} ) will be yielded in a text file.

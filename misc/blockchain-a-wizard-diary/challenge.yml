@@ -1,0 +1,35 @@
+name: "Blockchain: A Wizard Diary"
+author: Raahguu
+category: misc
+
+description: |
+    This old wizard insists that his diary is 'private', and none of his secrets can be exposed.
+    Luckily we know better.
+
+attribution: Raahguu
+image: ./app/.
+protocol: https
+
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+  - type: static
+    data: case_insensitive
+    content: pecan{pr1v473_isnt_pr1v473?}
+
+hints:
+  - |
+    I snuck into the wizard's room to steal this diary and the only thing of note is he kept mumbling in his sleep 'use foundry'
+  - |
+    Are private values in Storage really private, or can they be seen somehow?
+
+files:
+  - app/WizardDiary.sol
+
+version: '0.1'

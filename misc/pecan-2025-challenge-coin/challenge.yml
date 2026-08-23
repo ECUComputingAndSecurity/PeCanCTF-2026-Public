@@ -1,0 +1,23 @@
+name: PECAN+ 2025 Challenge Coin
+author: Paul Haskell-Dowland
+category: misc
+description: |
+  Each year we create a PECAN+ Challenge Coin, gifted to every competitor. Were you a 2025 competitor, and have you cracked last year's coin? Or, will a 2026 team beat you to the solve?!
+attribution: Paul Haskell-Dowland
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{2025-ChallengeCoin-RC-Wins}
+
+files:
+- 2025 PECAN Challenge Coin.png
+
+version: '0.1'

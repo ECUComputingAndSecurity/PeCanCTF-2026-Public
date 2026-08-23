@@ -1,0 +1,25 @@
+name: Message Over The Wire
+author: La Luo
+category: forensics
+description: |
+  Investigators placed a monitoring device (not a keylogger *cough* *cough*) between a wired keyboard and a laptop.
+  The device captured all communication passing between them.
+  The suspect entered something important shortly before the capture ended.
+attribution: La Luo
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{look_at_me_type}
+
+files:
+- traffic.pcap
+
+version: '0.1'

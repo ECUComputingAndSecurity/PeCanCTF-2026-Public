@@ -1,0 +1,23 @@
+name: Hidden Frequencies
+author: La Luo
+category: steg
+description: |
+  A suspicious audio file was intercepted. It sounds like meaningless noise, and yet ...
+attribution: La Luo
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{seeing_sound}
+
+files:
+- audio.wav
+
+version: '0.1'

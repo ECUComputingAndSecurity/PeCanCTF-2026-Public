@@ -1,0 +1,28 @@
+name: Over Format
+author: Raahguu
+category: pwn
+description: |
+  Send me some reports on greviances you have
+attribution: Raahguu
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+image: .
+protocol: tcp
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{4n_0v3rfl0w_into_4_5tr1ng_f0rm4t?}
+
+files:
+- Dockerfile
+- Makefile
+- chall
+
+version: '0.1'

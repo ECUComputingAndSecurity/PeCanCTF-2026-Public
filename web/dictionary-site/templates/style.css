@@ -1,0 +1,268 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+:root {
+    --bg: #fafaf9;
+    --surface: #fff;
+    --text: #292524;
+    --muted: #78716c;
+    --border: #e7e5e4;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --radius: 8px
+}
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .75rem 1.5rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10
+}
+
+.top-nav .logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-right: auto
+}
+
+.top-nav a {
+    font-size: .875rem
+}
+
+.hero {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border)
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    margin-bottom: .25rem
+}
+
+.hero .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem
+}
+
+.search {
+    display: flex;
+    gap: .5rem;
+    max-width: 480px;
+    margin: 0 auto
+}
+
+.search input {
+    flex: 1;
+    padding: .625rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: .9375rem;
+    outline: none;
+    transition: border-color .15s
+}
+
+.search input:focus {
+    border-color: var(--accent)
+}
+
+.search button {
+    padding: .625rem 1.25rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: .875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s
+}
+
+.search button:hover {
+    background: var(--accent-hover)
+}
+
+main {
+    flex: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    width: 100%
+}
+
+.featured h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .04em
+}
+
+.word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem
+}
+
+.word-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    transition: box-shadow .15s
+}
+
+.word-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .06)
+}
+
+.word-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: .25rem
+}
+
+.word-card h3 a {
+    color: var(--text)
+}
+
+.word-card h3 a:hover {
+    color: var(--accent);
+    text-decoration: none
+}
+
+.word-card .pos {
+    font-size: .8rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: .35rem
+}
+
+.word-card p {
+    font-size: .875rem;
+    color: var(--muted);
+    line-height: 1.5
+}
+
+.word-page {
+    padding-top: 1rem
+}
+
+.word-header {
+    margin-bottom: 1.5rem
+}
+
+.word-header h1 {
+    font-size: 2.25rem;
+    font-weight: 800
+}
+
+.word-header .pos {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .9375rem;
+    margin-top: .1rem
+}
+
+section {
+    margin-bottom: 1.5rem
+}
+
+section h2 {
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    margin-bottom: .5rem
+}
+
+ol,
+ul {
+    margin-left: 1.25rem
+}
+
+li {
+    margin-bottom: .3rem;
+    font-size: .9375rem
+}
+
+.examples li {
+    color: var(--muted);
+    font-style: italic
+}
+
+.synonyms ul,
+.also-see ul {
+    list-style: none;
+    margin-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem
+}
+
+.synonyms li,
+.also-see li {
+    margin: 0
+}
+
+.synonyms a,
+.also-see a {
+    display: inline-block;
+    padding: .2rem .65rem;
+    background: #f1f5f9;
+    border-radius: 999px;
+    font-size: .8125rem;
+    color: var(--accent);
+    transition: background .15s
+}
+
+.synonyms a:hover,
+.also-see a:hover {
+    background: #dbeafe;
+    text-decoration: none
+}
+
+footer {
+    margin-top: auto;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    font-size: .8125rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border)
+}

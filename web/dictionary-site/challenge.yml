@@ -1,0 +1,27 @@
+name: Dictionary Site
+author: RiskyMH
+category: web
+description: |
+  We've built a comprehensive dictionary with over 5000 words!
+  Sometimes finding what you're looking for takes a bit of effort.
+attribution: RiskyMH
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+image: .
+protocol: https
+
+hints:
+- robots have life easier than us...
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{als0_n0t4_w0rd}
+
+version: '0.1'

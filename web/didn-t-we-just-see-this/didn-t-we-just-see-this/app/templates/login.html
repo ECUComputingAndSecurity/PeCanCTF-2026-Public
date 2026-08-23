@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="card border-0 shadow-sm narrow mx-auto">
+    <div class="card-body p-4">
+    <h1 class="h3 mb-4">Log in to DevHub</h1>
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label" for="username">Username</label>
+        <input class="form-control" id="username" name="username" autocomplete="username" required>
+      </div>
+      <div class="mb-4">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" id="password" name="password" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+    </div>
+  </section>
+{% endblock %}

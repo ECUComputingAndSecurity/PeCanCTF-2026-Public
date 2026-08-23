@@ -1,0 +1,27 @@
+name: Aliens
+author: Raahguu
+category: misc
+description: |
+  We found this old conspiracy archive online. Had some weird stuff. There might be some useful info somewhere on there though.
+attribution: Raahguu
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+image: src/
+protocol: tcp
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{alien_conspiracy_stuff_goes_weirdly_deep}
+
+hints:
+    - Maybe a program can be made to scrape the entire archive
+    - There are only about 50 pages, you could just look by hand
+
+version: '0.1'

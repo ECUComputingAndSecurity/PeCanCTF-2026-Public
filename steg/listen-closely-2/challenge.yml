@@ -1,0 +1,30 @@
+name: Look Closely
+author: RiskyMH
+category: steg
+description: |
+  Don't trust your ears — sometimes you need to see the sound.
+  Same track, different angle.
+attribution: RiskyMH
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{L00K_CL0S3LY}
+- type: static
+  data: case_insensitive
+  content: pecan(L00K_CL0S3LY)
+
+files:
+- listen_closely.mp3
+
+hints:
+- Try looking at the audio in a spectrogram — the top of the frequency range has more than meets the ear.
+
+version: '0.1'

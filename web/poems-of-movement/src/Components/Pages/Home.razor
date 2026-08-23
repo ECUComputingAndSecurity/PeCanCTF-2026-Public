@@ -1,0 +1,99 @@
+﻿@using System.Web
+
+@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+@if (_status == Status.NotFound)
+{
+    <h1>Not Found</h1>
+}
+else if (_status == Status.File)
+{
+    <h1>Reading file @Path</h1>
+    <ul>
+        <li><a href="?path=@HttpUtility.UrlEncode(GetParentDirectory())">Back</a></li>
+    </ul>
+    <div class="contents">
+        <pre>
+            @_file
+        </pre>
+    </div>
+}
+else if(_status == Status.Directory)
+{
+    <h1>Directory listing for @Path</h1>
+    <ul>
+        @if (!string.IsNullOrWhiteSpace(Path) && Path != "/")
+        {
+            <li><a href="?path=@HttpUtility.UrlEncode(GetParentDirectory())">Back</a></li>
+        }
+        @foreach (var obj in _directoryList)
+        {
+            <li><a href="?path=@HttpUtility.UrlEncode(Path + obj)">@obj</a></li>
+        }
+    </ul>
+}
+
+@code {
+    [SupplyParameterFromQuery] [Parameter] public string Path { get; set; } = "/";
+
+    private readonly string _baseDirectory = Directory.GetCurrentDirectory() + System.IO.Path.DirectorySeparatorChar + "Files";
+    private Status _status = Status.NotFound;
+    private List<string> _directoryList = [];
+    private string _file = "";
+    
+    protected override void OnParametersSet()
+    {
+        if (string.IsNullOrWhiteSpace(Path))
+            Path = "/";
+
+        var testPath = _baseDirectory + Path;
+        
+        if (!IsValidPath(testPath))
+            _status = Status.NotFound;
+        else if (File.Exists(testPath))
+        {
+            _status = Status.File;
+            _file = File.ReadAllText(testPath);
+        }
+        else if (Directory.Exists(testPath))
+        {
+            if (!Path.EndsWith(System.IO.Path.DirectorySeparatorChar))
+                Path += System.IO.Path.DirectorySeparatorChar;
+            testPath = _baseDirectory + Path;
+            
+            _status = Status.Directory;
+            _directoryList = Directory.EnumerateFileSystemEntries(testPath)
+                .Select(t => t.Replace(testPath, "")).ToList();
+        }
+        else
+            _status = Status.NotFound;
+        
+        base.OnParametersSet();
+    }
+
+    private bool IsValidPath(string path)
+    {
+        var relativePath = System.IO.Path.GetRelativePath(
+            Directory.GetCurrentDirectory().Replace('\\', '/'),
+            path.Replace('\\', '/'));
+        return relativePath != ".."
+               && !relativePath.StartsWith("../")
+               && !System.IO.Path.IsPathRooted(relativePath);
+    }
+
+    private enum Status
+    {
+        File, Directory, NotFound
+    }
+
+    private string GetParentDirectory()
+    {
+        return new DirectoryInfo(_baseDirectory + Path).Parent!.FullName
+            .Replace(_baseDirectory, "")
+            .Replace(Directory.GetCurrentDirectory(), "");
+    }
+
+}

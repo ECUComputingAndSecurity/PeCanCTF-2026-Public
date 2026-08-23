@@ -1,0 +1,35 @@
+name: "Blockchain: Ancient Vault"
+author: Raahguu
+
+description: |
+    I found this old tomb, after talking to the locals 
+    apparently if the sacred number is spoken it reveals its secrets. 
+    Sadly this so called secret number seems to be lost to time.
+category: misc
+attribution: Raahguu
+image: ./app/.
+protocol: https
+
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+  - type: static
+    data: case_insensitive
+    content: pecan{01d_v4u175_4r3_w3ird_bu7_1337}
+
+hints:
+  - |
+    I think I see an inscription in the side of the tomb saying 'use foundry'
+  - |
+    Is that another one mentioning 'cast send'? One can only imagine what that means
+
+files:
+  - app/AncientVault.sol
+
+version: '0.1'

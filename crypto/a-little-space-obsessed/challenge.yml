@@ -1,0 +1,24 @@
+name: A Little Space Obsessed
+author: Lindsay Coudert
+category: crypto
+description: |
+  A document with a list of NASA missions have been found on the system, clearly someone is rather fond of space and was making some kind of study note. However the names in some of these have been obscured. Can you help decode what they are? (All image credits belong to NASA)
+  flag format: pecan{Rocket1_Rocket2_Spacecraft}
+attribution: Lindsay Coudert
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{SaturnV_AtlasV_Orion}
+
+files:
+- Project Hail Mary.pdf
+
+version: '0.1'

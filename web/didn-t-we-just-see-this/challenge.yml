@@ -1,0 +1,32 @@
+name: Didn't We Just See This?
+author: Wei-Ta Tu
+category: web
+description: |
+  Welcome to DevHub.
+  Each developer workspace is assigned a DevHub support agent to help investigate project issues.
+  Your project settings include an API key, but support agents have access to a more privileged key for troubleshooting.
+  Can you find a way to recover your support agent's API key?
+attribution: Wei-Ta Tu
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+image: ./didn-t-we-just-see-this/
+protocol: https
+
+flags:
+- type: static
+  data: case_insensitive
+  content: PECAN{W38_C4CH3_D3C3P710N_W2T7P3C4SA5X6ZHQFM4SK7}
+
+hints:
+  - |
+    Don't only look at what the page renders. Developer tools or Burp Suite can show details that the page itself does not display.
+  - |
+    Try comparing similar-looking portal URLs. Small changes in a URL can sometimes be handled differently by different parts of a web application.
+
+version: '0.1'

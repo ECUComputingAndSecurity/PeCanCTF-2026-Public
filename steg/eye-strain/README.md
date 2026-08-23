@@ -1,0 +1,1 @@
+There is black text throughout the pdf, obscured where it overlaps with the black in the image. Download and open pdf. Depending on .pdf reader, there are different approaches to revealing text, i.e.; edit text, copy all and paste into a new doc, search (note: search for "pecan" will reveal several instances, including flag).

@@ -1,0 +1,23 @@
+name: activate
+author: Lachlan Adamson
+category: rev
+description: |
+  Closed doors. Next-level obfuscation technology. But you don't have the keys.
+attribution: Lachlan Adamson
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{9668-2015-0080-3526}
+
+files:
+- activate-1.0.0.jar
+
+version: '0.1'

@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %} — Login{% endblock %}
+
+{% block head %}
+<style>
+    .auth-wrapper {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1a1a2e;
+    }
+
+    .auth-card {
+        background: #16213e;
+        border: 1px solid #0f3460;
+        border-radius: 16px;
+        padding: 2.5rem 2.25rem;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .auth-logo {
+        text-align: center;
+        margin-bottom: 1.75rem;
+    }
+
+    .auth-logo .icon { font-size: 2.5rem; display: block; margin-bottom: 0.5rem; }
+
+    .auth-logo h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffd700;
+    }
+
+    .auth-logo p { font-size: 0.85rem; color: #888; margin-top: 0.25rem; }
+
+    .form-group { margin-bottom: 1.1rem; }
+
+    .form-group label {
+        display: block;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #aaa;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.4rem;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 0.7rem 0.9rem;
+        background: #0f1b2d;
+        border: 1px solid #0f3460;
+        border-radius: 8px;
+        color: #e0e0e0;
+        font-size: 0.95rem;
+        transition: border-color 0.15s;
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: #ffd700;
+    }
+
+    .btn-block { width: 100%; justify-content: center; margin-top: 0.5rem; }
+
+    .auth-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+        color: #777;
+    }
+
+    .auth-footer a { color: #ffd700; text-decoration: none; }
+    .auth-footer a:hover { text-decoration: underline; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-logo">
+            <span class="icon">📝</span>
+            <h1>StickyNotes</h1>
+            <p>Your notes, always within reach</p>
+        </div>
+
+        {% if error %}
+        <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="/login">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" autocomplete="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        </form>
+
+        <div class="auth-footer">
+            Don't have an account? <a href="/signup">Create one</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

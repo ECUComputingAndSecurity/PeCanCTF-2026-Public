@@ -1,0 +1,24 @@
+name: East Bound
+author: DeviantAndroid/Lindsay Coudert
+category: osint
+description: |
+  I hear doing a little digging in the file metadata can teach you a lot about how people can be forgetful. What flight did our operative take to get to her location? We only know the Airport code YPPH.
+  Flag Format: pecan{QF987}
+type: dynamic
+attribution: DeviantAndroid/Lindsay Coudert
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{VA710}
+
+files:
+- VA000.jpg
+
+version: '0.1'

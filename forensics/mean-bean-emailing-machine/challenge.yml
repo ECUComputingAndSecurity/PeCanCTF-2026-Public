@@ -1,0 +1,31 @@
+name: Mean Bean Emailing Machine
+author: Dio Lea
+category: forensics
+description: |
+  "Dearest SOC Analyst,
+
+  Our employer and Earth's greatest mega corp Bean Co. has been hit with a cyber attack in retaliation for their purchase of all legal rights to the rain. In spite of all Bean Co. systems crashing we've determined the cause to be a phishing attack. We know you've been wanting that promotion so it's your job to search Bean Co.'s email logs to find out just what kind of malware we're dealing with.
+
+  As for your reward, the CEO will personally give himself all the credit and a $10M bonus for your hard work.
+
+  For the shareholders!!
+
+  -Middle Manager Mike"
+attribution: Dio Lea
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{n3ver_b34n_b3tter}
+
+files:
+- bean_co_email_logs.json
+
+version: '0.1'

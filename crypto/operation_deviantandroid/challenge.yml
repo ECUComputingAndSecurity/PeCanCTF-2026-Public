@@ -1,0 +1,23 @@
+name: Operation_DeviantAndroid 
+author: Lindsay Coudert
+category: crypto
+description: |
+  Time is running out, we need to find Agent Anderson. Our problem is we can't find the last location she could have been before she fled. It makes sense she was seen around her beloved horse she was undercover and used that to help her hide... but she's gone AWOL and now she may have sensitive information.
+attribution: Lindsay Coudert
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{Camden_Bicentennial_Equestrian_Park}
+
+files:
+- Operation_DeviantAndroid.pdf
+
+version: '0.1'

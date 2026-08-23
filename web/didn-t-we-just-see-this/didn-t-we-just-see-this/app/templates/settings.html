@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+      <p class="text-uppercase text-primary fw-bold small mb-2">Project Settings</p>
+      <h1 class="h3 mb-4">Runtime Configuration</h1>
+      <dl class="row mb-0">
+        <dt class="col-sm-4 text-body-secondary">Account</dt>
+        <dd class="col-sm-8">{{ user.username }}</dd>
+        <dt class="col-sm-4 text-body-secondary">Role</dt>
+        <dd class="col-sm-8">{{ user.role }}</dd>
+        <dt class="col-sm-4 text-body-secondary">Project namespace</dt>
+        <dd class="col-sm-8">{{ challenge_id }}</dd>
+        <dt class="col-sm-4 text-body-secondary">API key</dt>
+        <dd class="col-sm-8"><code>{{ api_key }}</code></dd>
+      </dl>
+    </div>
+  </section>
+{% endblock %}

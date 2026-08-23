@@ -1,0 +1,23 @@
+name: RFC 742
+author: Raahguu
+category: misc
+description: |
+  *Poke* *Poke*
+attribution: Raahguu
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+image: .
+protocol: tcp
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{p0k3_p0k3_d07_do7_do7_p0k3_p0k3}
+
+version: '0.1'

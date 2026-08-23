@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Dictionary - {{WORD_COUNT}} Words</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <!--
+  TODO: During the bulk import from the legacy word database, some entries
+  that aren't actually words got mixed into our dataset. They may appear
+  linked on certain word pages. Need to manually review and
+  clean up all {{WORD_COUNT}}+ entries at some point...
+  -->
+  <nav class="top-nav">
+    <span class="logo">Dictionary</span>
+  </nav>
+  <header class="hero">
+    <h1>Dictionary</h1>
+    <p class="subtitle">A comprehensive collection of <strong>{{WORD_COUNT}}</strong> English words</p>
+    <form class="search" id="search-form" action="javascript:">
+      <input type="text" name="q" placeholder="Search for a word..." aria-label="Search" id="search-input" autofocus>
+      <button type="submit">Search</button>
+    </form>
+  </header>
+  <main>
+    <section class="featured" id="featured-section">
+      <h2>Featured Words</h2>
+      <div class="word-grid">
+        {{FEATURED_WORDS}}
+      </div>
+    </section>
+    <section class="search-results" id="results-section" style="display:none">
+      <h2>Search Results</h2>
+      <div class="word-grid" id="results-grid"></div>
+    </section>
+  </main>
+  <footer>
+    <p>Dictionary &copy; 2026 &middot; Data sourced from open vocabulary databases</p>
+  </footer>
+  <script>
+    const input = document.getElementById("search-input");
+    const form = document.getElementById("search-form");
+    const featured = document.getElementById("featured-section");
+    const results = document.getElementById("results-section");
+    const grid = document.getElementById("results-grid");
+
+    async function doSearch(q) {
+      if (!q) { featured.style.display = "block"; results.style.display = "none"; grid.innerHTML = ""; return; }
+      featured.style.display = "none";
+      grid.innerHTML = "<p>Loading...</p>";
+      results.style.display = "block";
+      try {
+        const res = await fetch("/search?q=" + encodeURIComponent(q));
+        const data = await res.json();
+        if (data.results && data.results.length > 0) {
+          grid.innerHTML = data.results.map(r =>
+            '<article class="word-card"><h3><a href="/word/' + encodeURIComponent(r.word) + '">' + r.word + '</a></h3>' +
+            (r.pos ? '<p class="pos">' + r.pos + '</p>' : '') +
+            (r.definition ? '<p>' + r.definition + '</p>' : '') +
+            '</article>'
+          ).join("");
+        } else {
+          grid.innerHTML = "<p>No results found for &ldquo;" + q + "&rdquo;.</p>";
+        }
+      } catch (e) {
+        grid.innerHTML = "<p>Search failed.</p>";
+      }
+    }
+
+    form.addEventListener("submit", e => { e.preventDefault(); doSearch(input.value.trim().toLowerCase()); });
+
+    let debounceTimer;
+    input.addEventListener("input", function () {
+      clearTimeout(debounceTimer);
+      const q = this.value.trim().toLowerCase();
+      if (!q) { doSearch(q); return; }
+      debounceTimer = setTimeout(() => doSearch(q), 150);
+    });
+  </script>
+</body>
+
+</html>

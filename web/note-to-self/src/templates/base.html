@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StickyNotes{% block title %}{% endblock %}</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: #16213e;
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ffd700;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #ffd700;
+            letter-spacing: -0.02em;
+        }
+
+        .brand span { font-weight: 300; color: #ccc; }
+
+        nav .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+
+        nav .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        nav .nav-links a:hover { background: #0f3460; color: #ffd700; }
+        nav .nav-links a.admin-link { color: #e8b4ff; }
+        nav .nav-links a.admin-link:hover { background: #2a1a3e; color: #e8b4ff; }
+
+        .user-badge {
+            background: #0f3460;
+            color: #ffd700;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .alert {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .alert-error { background: rgba(231,76,60,0.15); border: 1px solid rgba(231,76,60,0.4); color: #e74c3c; }
+        .alert-info  { background: rgba(52,152,219,0.15); border: 1px solid rgba(52,152,219,0.4); color: #3498db; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.55rem 1.25rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.15s, transform 0.1s;
+        }
+
+        .btn:active { transform: scale(0.97); }
+        .btn:hover { opacity: 0.88; }
+        .btn-primary { background: #ffd700; color: #1a1a2e; }
+        .btn-danger  { background: #e74c3c; color: #fff; }
+        .btn-ghost   { background: transparent; border: 1px solid #444; color: #ccc; }
+        .btn-sm { padding: 0.3rem 0.65rem; font-size: 0.78rem; }
+    </style>
+    {% block head %}{% endblock %}
+</head>
+<body>
+{% if username is defined %}
+<nav>
+    <span class="brand">📝 Sticky<span>Notes</span></span>
+    <div class="nav-links">
+        <a href="/notes">My Notes</a>
+        {% if role == 'admin' %}<a href="/admin" class="admin-link">Admin Panel</a>{% endif %}
+        <span class="user-badge">{{ username }}</span>
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+{% endif %}
+{% block content %}{% endblock %}
+</body>
+</html>

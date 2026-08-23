@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+{% block title %} — My Notes{% endblock %}
+
+{% block head %}
+<style>
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .page-header h2 { font-size: 1.4rem; color: #ffd700; font-weight: 700; }
+    .page-header p  { font-size: 0.85rem; color: #888; margin-top: 0.2rem; }
+
+    /* Compose panel */
+    .compose {
+        background: #16213e;
+        border: 1px solid #0f3460;
+        border-radius: 14px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .compose h3 { font-size: 0.95rem; color: #aaa; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    .compose-row { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; }
+
+    .compose input[type="text"],
+    .compose textarea {
+        width: 100%;
+        padding: 0.65rem 0.9rem;
+        background: #0f1b2d;
+        border: 1px solid #0f3460;
+        border-radius: 8px;
+        color: #e0e0e0;
+        font-size: 0.9rem;
+        font-family: inherit;
+        resize: vertical;
+        transition: border-color 0.15s;
+    }
+
+    .compose input[type="text"]:focus,
+    .compose textarea:focus { outline: none; border-color: #ffd700; }
+
+    .compose textarea { min-height: 90px; }
+
+    .compose-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .color-picker { display: flex; gap: 0.5rem; align-items: center; }
+
+    .color-picker label { font-size: 0.8rem; color: #888; }
+
+    .color-dot {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 3px solid transparent;
+        transition: border-color 0.15s, transform 0.1s;
+    }
+
+    .color-dot:hover  { transform: scale(1.15); }
+    .color-dot.active { border-color: #fff; transform: scale(1.15); }
+
+    /* Notes grid */
+    .notes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.25rem;
+    }
+
+    .note-card {
+        border-radius: 12px;
+        padding: 1.1rem 1.1rem 0.9rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        position: relative;
+        animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    .note-card .note-title {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #1a1a2e;
+        word-break: break-word;
+    }
+
+    .note-card .note-body {
+        font-size: 0.85rem;
+        color: #1a1a2e;
+        opacity: 0.85;
+        line-height: 1.5;
+        word-break: break-word;
+        flex: 1;
+        white-space: pre-wrap;
+    }
+
+    .note-card .note-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.25rem;
+    }
+
+    .note-card .note-date { font-size: 0.72rem; color: #1a1a2eaa; }
+
+    .note-card .delete-btn {
+        background: rgba(0,0,0,0.15);
+        border: none;
+        border-radius: 6px;
+        color: #1a1a2e;
+        font-size: 0.78rem;
+        padding: 0.2rem 0.5rem;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.15s, background 0.15s;
+    }
+
+    .note-card:hover .delete-btn { opacity: 1; }
+    .note-card .delete-btn:hover { background: rgba(0,0,0,0.3); }
+
+    .empty-state {
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 3rem;
+        color: #555;
+    }
+
+    .empty-state .icon { font-size: 3rem; display: block; margin-bottom: 0.75rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <div>
+            <h2>My Notes</h2>
+            <p>All your notes in one place</p>
+        </div>
+    </div>
+
+    <div class="compose">
+        <h3>New Note</h3>
+        <form id="note-form">
+            <div class="compose-row">
+                <input type="text" id="note-title" placeholder="Title" maxlength="100" required>
+            </div>
+            <div class="compose-row">
+                <textarea id="note-content" placeholder="What's on your mind?" maxlength="2000" required></textarea>
+            </div>
+            <div class="compose-footer">
+                <div class="color-picker">
+                    <label>Colour</label>
+                    <span class="color-dot active" data-color="#ffd700" style="background:#ffd700" title="Yellow"></span>
+                    <span class="color-dot" data-color="#a8e6cf" style="background:#a8e6cf" title="Mint"></span>
+                    <span class="color-dot" data-color="#ffb3ba" style="background:#ffb3ba" title="Pink"></span>
+                    <span class="color-dot" data-color="#b3d9ff" style="background:#b3d9ff" title="Blue"></span>
+                    <span class="color-dot" data-color="#e8b4ff" style="background:#e8b4ff" title="Purple"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Note</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="notes-grid" id="notes-grid">
+        <div class="empty-state">
+            <span class="icon">🔄</span>
+            <p>Loading notes…</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const grid = document.getElementById('notes-grid');
+    let selectedColor = '#ffd700';
+
+    document.querySelectorAll('.color-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+            document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+            dot.classList.add('active');
+            selectedColor = dot.dataset.color;
+        });
+    });
+
+    function esc(str) {
+        const d = document.createElement('div');
+        d.appendChild(document.createTextNode(str));
+        return d.innerHTML;
+    }
+
+    async function loadNotes() {
+        try {
+            const res = await fetch('/api/notes');
+            const notes = await res.json();
+            renderNotes(notes);
+        } catch {
+            grid.innerHTML = '<div class="empty-state"><span class="icon">⚠️</span><p>Failed to load notes</p></div>';
+        }
+    }
+
+    function renderNotes(notes) {
+        if (!notes.length) {
+            grid.innerHTML = '<div class="empty-state"><span class="icon">📋</span><p>No notes yet — add one above!</p></div>';
+            return;
+        }
+        grid.innerHTML = notes.map(n => `
+            <div class="note-card" style="background:${esc(n.color)}">
+                <div class="note-title">${esc(n.title)}</div>
+                <div class="note-body">${esc(n.content)}</div>
+                <div class="note-footer">
+                    <span class="note-date">${esc(n.created_at)}</span>
+                    <button class="delete-btn" onclick="deleteNote('${n.id}')">Delete</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    async function deleteNote(id) {
+        await fetch(`/api/notes/${id}`, { method: 'DELETE' });
+        loadNotes();
+    }
+
+    document.getElementById('note-form').addEventListener('submit', async e => {
+        e.preventDefault();
+        const title   = document.getElementById('note-title').value.trim();
+        const content = document.getElementById('note-content').value.trim();
+        if (!title || !content) return;
+        const res = await fetch('/api/notes', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title, content, color: selectedColor }),
+        });
+        if (res.ok) {
+            document.getElementById('note-title').value   = '';
+            document.getElementById('note-content').value = '';
+            loadNotes();
+        }
+    });
+
+    loadNotes();
+</script>
+{% endblock %}

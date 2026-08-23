@@ -1,0 +1,24 @@
+name: Car Worship?
+author: Lindsay Coudert 
+category: osint
+description: |
+  Why would anyone worship a car? 
+  Flag format: 'pecan{name_of_place_year_make_model_bodytype}'
+attribution: Lindsay Coudert
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{Volvo_Island_2001_Volvo_S80_Sedan}
+
+files:
+  - TimeToWorship.png
+
+version: '0.1'

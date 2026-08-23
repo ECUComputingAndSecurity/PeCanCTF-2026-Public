@@ -1,0 +1,23 @@
+name: RSA and the Probably Private Primes
+author: Chelsea Pritchard
+category: crypto
+description: |
+  We've intercepted a secure channel between two hackers! They're using RSA to secure their communications but we've managed to compromise their key generation. Can you crack the code and read the secret messages?
+attribution: Chelsea Pritchard
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+  
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{r3us1ng_pr1m3s_i5_b4d}
+
+files:
+- intercepted_messages.txt
+
+version: '0.1'

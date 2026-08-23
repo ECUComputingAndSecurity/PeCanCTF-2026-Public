@@ -1,0 +1,165 @@
+From: j.calloway@protonmail.com
+To: marcus.ohearn@gmail.com
+Date: Wed, 18 Mar 2026 11:08:55 +1000
+Subject: Mother's recipe
+
+============================================================
+
+Hey Marcus,
+
+I completely understand what you mean it's been too long since we've met in person.
+
+I probably can't bring the lamb over for our next meeting but if you need a good recipe this is the version we always made for Easter and sometimes in winter when the lamb was good at the market.
+Mum never measured anything exactly so I've done my best to convert her handfuls and pinches into
+something usable. The method is more important than the exact amounts, the key to anything in life is observing the small details that seperate the mediocre from the elite. Knowing what small detail others will overlook.
+
+------------------------------------------------------------
+SERVES: 6–8 (or 4 with decent leftovers)
+PREP TIME: 20 minutes
+COOK TIME: 4.5 to 5 hours low and slow
+------------------------------------------------------------
+
+INGREDIENTS
+-----------
+
+1 lamb shoulder, bone-in (approx 2–2.4 kg)
+8 cloves garlic, peeled and halved lengthways
+3 sprigs fresh rosemary, broken into small pieces
+2 sprigs fresh thyme
+1 large brown onion, roughly chopped
+2 medium carrots, roughly chopped
+2 sticks celery, roughly chopped
+250ml dry white wine (Mum used whatever was open — she wasn't fussy)
+400ml chicken or vegetable stock
+2 tbsp olive oil
+1 tbsp plain flour
+Salt and black pepper, generously applied
+1 tsp sweet paprika (optional, she added this in later years)
+Zest of half a lemon (again, optional but adds brightness)
+
+------------------------------------------------------------
+
+EQUIPMENT NOTES
+
+You need a heavy-based casserole dish or Dutch oven with a tight lid.
+Mum used the big cream Le Creuset that came from Nonna originally.
+A roasting tray with foil works but the result isn't quite the same —
+the steam doesn't circulate the same way.
+
+------------------------------------------------------------
+
+PREPARATION
+
+Remove the lamb from the fridge at least 40 minutes before cooking.
+This is important. Cold meat hitting a hot pan gives you a grey
+exterior and uneven cooking all the way through.
+
+Pat it completely dry with paper towel. This is the step most people
+skip and then wonder why there's no colour on the outside.
+
+Using a small sharp knife, make about 16 deep incisions all over the
+lamb top, sides, underneath. Push a piece of garlic and a small
+sprig of rosemary into each one. It should feel snug, not loose.
+If it falls out, the incision wasn't deep enough.
+
+Combine the salt, pepper, and paprika (if using) in a small bowl and
+rub it all over the surface of the lamb. Be thorough. Every surface.
+
+------------------------------------------------------------
+
+COOKING METHOD
+
+Preheat your oven to 160°C (fan-forced) or 170°C conventional.
+Do not be tempted to go higher. Low and slow is the whole point.
+
+Heat the olive oil in your casserole over high heat on the stovetop.
+When it's shimmering put the lamb in fat-side down.
+Leave it alone for 5 minutes. Don't move it. You want a deep brown
+crust, not a pale grey surface. Colour is flavour.
+
+Sear on all sides (about 3 minutes each side, less on the ends).
+Remove the lamb and set it aside on a plate.
+
+Reduce heat to medium. Add the onion, carrot, and celery. Cook for
+about 8 minutes until softened and starting to colour. Add the flour
+and stir through for about a minute this will thicken the sauce
+slightly later on. Pour in the wine and let it bubble and reduce by
+about half, scraping up any brown bits from the bottom of the pan.
+Those bits are flavour. Don't leave them there.
+
+Pour in the stock. Add the remaining rosemary and thyme. Stir gently.
+
+Nestle the lamb back in, fat-side up. It should be sitting in the
+liquid but not submerged about halfway up is right.
+
+Put the lid on tightly and slide it into the oven.
+
+------------------------------------------------------------
+
+TIMING
+
+2 hours at 160°C IMPORTANTLY do not open the oven during this period.
+After 2 hours, remove the lid and baste the top of the lamb with the
+cooking juices. This is also when you add the lemon zest if using.
+Return to oven without the lid for another 2.5 hours.
+
+The lamb is ready when you can pull the bone clean out with no
+resistance at all. If there's any resistance, give it another 30 mins.
+
+RESTING AND SERVING
+
+This is non-negotiable: rest the lamb for at least 20 minutes,
+loosely tented with foil, before you touch it. The juices redistribute.
+If you cut it too early the plate will be swimming and the meat dry.
+
+It won't carve cleanly but that's fine. The whole point is that it falls
+apart in chunks when you pull at it with tongs or two forks.
+
+Serve with roasted vegetables, soft polenta, or mashed potato.
+The cooking liquid, strained and reduced, makes a simple sauce.
+Mum always added a knob of butter at the end, off the heat. I do too.
+
+------------------------------------------------------------
+
+VARIATIONS MUM USED DEPENDING ON SEASON
+
+Autumn/Winter: Add 2 anchovies with the vegetables. They dissolve
+completely and just add depth you won't taste fish. Also add
+1 tbsp tomato paste with the stock for a richer, darker sauce.
+
+Spring (lighter version): Skip the paprika, use more lemon, add
+a handful of green olives in the last hour. Serve with greens
+not potato.
+
+Summer: Mum rarely made this in summer. She said it was a cold
+weather dish and that cooking it in January was "not right."
+I've made it anyway. She wasn't wrong.
+
+This recipe has become so famous we even gained recognition from the Australian Regional Food Archive you can see proof below.
+The dish would be special anyway, but this added detail really seperates it from others. 
+
+------------------------------------------------------------
+
+AUSTRALIAN REGIONAL FOOD ARCHIVE — DIGITISATION RECORD
+Recipe ID: LMB-SC-0044
+Archive region: Joondalup
+File last updated: 18/01/2026
+Source collection digitisation batch ref: 535550504C595F434841494E
+Scan quality: good, original handwritten card, minor foxing on edges
+Original held: Rosa family collection
+
+------------------------------------------------------------
+
+Kind regards,
+Jamie
+
+[SYS] trace_id=QX7714
+[SYS] node_class=trace
+[SYS] hop_sequence=mx11 -> relay11 -> edge20 -> archive26
+[SYS] integrity_check=passed
+[SYS] routing_mode=standard
+
+Full path validation complete.
+All nodes responded within expected parameters.
+
+END REPORT

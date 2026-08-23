@@ -1,0 +1,62 @@
+{
+  "matrices": {
+    "matrix_1": [
+      [0, 1, 1, 0, 0, 0, 1, 1],
+      [1, 0, 0, 1, 0, 1, 1, 0],
+      [0, 0, 1, 1, 1, 0, 0, 1],
+      [0, 0, 1, 1, 0, 1, 0, 1],
+      [0, 1, 0, 0, 1, 0, 0, 0],
+      [1, 1, 1, 0, 0, 0, 1, 1],
+      [0, 0, 1, 1, 0, 1, 0, 0],
+      [0, 1, 0, 1, 1, 0, 1, 1]
+    ],
+    "matrix_2": [
+      [0, 1, 1, 1, 0, 1, 0, 1],
+      [1, 0, 0, 0, 1, 0, 1, 0],
+      [0, 1, 1, 0, 0, 0, 0, 1],
+      [0, 0, 1, 1, 0, 1, 0, 1],
+      [1, 1, 1, 0, 1, 1, 1, 0],
+      [0, 0, 0, 1, 0, 0, 0, 1],
+      [0, 1, 1, 1, 1, 1, 0, 0],
+      [0, 1, 1, 0, 1, 0, 1, 1]
+    ],
+    "matrix_3": [
+      [0, 1, 0, 1, 0, 1, 0, 0],
+      [0, 0, 1, 1, 0, 0, 0, 1],
+      [1, 1, 1, 0, 1, 1, 1, 0],
+      [0, 1, 1, 1, 0, 0, 0, 1],
+      [0, 0, 1, 0, 1, 1, 0, 1],
+      [1, 0, 0, 0, 1, 0, 1, 0],
+      [0, 1, 0, 1, 1, 0, 1, 1],
+      [0, 1, 1, 0, 0, 1, 0, 1]
+    ],
+    "matrix_4": [
+      [0, 1, 0, 0, 1, 1, 1, 0],
+      [0, 0, 1, 0, 0, 0, 1, 1],
+      [0, 1, 1, 0, 1, 0, 0, 1],
+      [1, 0, 0, 1, 0, 1, 0, 0],
+      [1, 1, 1, 0, 1, 1, 0, 1],
+      [0, 1, 1, 1, 1, 0, 1, 0],
+      [1, 0, 0, 1, 0, 0, 0, 1],
+      [0, 0, 1, 1, 0, 0, 1, 1]
+    ]
+  },
+  "ec_table_rows": [
+    { "row": 1,  "matrix_1": null,      "matrix_2": null,      "matrix_3": "0100110", "matrix_4": null },
+    { "row": 2,  "matrix_1": null,      "matrix_2": "0000111", "matrix_3": null,      "matrix_4": null },
+    { "row": 3,  "matrix_1": null,      "matrix_2": "1000100", "matrix_3": null,      "matrix_4": "0011010" },
+    { "row": 4,  "matrix_1": null,      "matrix_2": null,      "matrix_3": "0010110", "matrix_4": "0110110" },
+    { "row": 5,  "matrix_1": null,      "matrix_2": "0100100", "matrix_3": "0000110", "matrix_4": null },
+    { "row": 6,  "matrix_1": "0000111", "matrix_2": null,      "matrix_3": null,      "matrix_4": null },
+    { "row": 7,  "matrix_1": "0101001", "matrix_2": null,      "matrix_3": null,      "matrix_4": null },
+    { "row": 8,  "matrix_1": "0100110", "matrix_2": null,      "matrix_3": "0101000", "matrix_4": null },
+    { "row": 9,  "matrix_1": null,      "matrix_2": null,      "matrix_3": "1000100", "matrix_4": "1000110" },
+    { "row": 10, "matrix_1": null,      "matrix_2": "0100111", "matrix_3": "0111100","matrix_4": null },
+    { "row": 11, "matrix_1": "0111000", "matrix_2": null,      "matrix_3": null,      "matrix_4": null },
+    { "row": 12, "matrix_1": "0011010", "matrix_2": null,      "matrix_3": "0101000", "matrix_4": null },
+    { "row": 13, "matrix_1": null,      "matrix_2": null,      "matrix_3": "0010100", "matrix_4": null },
+    { "row": 14, "matrix_1": "1000101", "matrix_2": "0100111", "matrix_3": null,      "matrix_4": "1000110" },
+    { "row": 15, "matrix_1": "0101111", "matrix_2": null,      "matrix_3": "0010100", "matrix_4": null },
+    { "row": 16, "matrix_1": null,      "matrix_2": "0111110", "matrix_3": null,      "matrix_4": null }
+  ]
+}

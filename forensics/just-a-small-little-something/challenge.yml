@@ -1,0 +1,23 @@
+name: Just a Small Little Something
+author: Lindsay Coudert
+category: forensics
+description: |
+  Found this zip file on my laptop that a friend randomly downloaded from the internet can you help find what it may be hiding? I mean surely it's nothing
+attribution: Lindsay Coudert
+type: dynamic
+
+extra:
+  initial: 500
+  decay: 4
+  function: linear
+  minimum: 100
+
+flags:
+- type: static
+  data: case_insensitive
+  content: pecan{1nv3st2g4t10n5_4r3_fun_r1ght?}
+
+files:
+- Have fun.zip
+
+version: '0.1'
